@@ -30,6 +30,7 @@ npm -v # Should print "10.9.2".
 ![MongoDB success](https://i.gyazo.com/98fb5c0b2bbbbfc406fae0828433f2a6.png)
 
 * Nginx install
+
 `sudo apt install nginx`
 
 ## Podesavanje Guestbook app (baza podataka, node server, nginx host, DNS)
@@ -52,6 +53,7 @@ npm -v # Should print "10.9.2".
 ### NodeJS server i sama aplikacija
 
 ![](https://i.gyazo.com/a8c3cab9a142b332f06e9c86a4903a66.png)
+
 PM2 za aktivaciju servera u pozadini i na startup-u sistema
 `npm install -g pm2`
 
@@ -60,6 +62,7 @@ PM2 za aktivaciju servera u pozadini i na startup-u sistema
 DuckDNS konfiguracija
 
 NGINX config sa DNS serverom.
+
 `sudo nano /etc/nginx/sites-available/guestbook`
 
 `sudo ln -s /etc/nginx/sites-available/guestbook /etc/nginx/sites-enabled/`
@@ -72,11 +75,19 @@ NGINX config sa DNS serverom.
 `pm2 save`
 
 Otvaranje portova
+
 `sudo ufw allow 22,80,443`
 
 `sudo ufw enable`
 
 ![](https://i.gyazo.com/6c0f2a23218d3140a341e8c6aae50812.png)
-Slika app <
+
+![](https://i.gyazo.com/d351488a7846f7de6bb50f26e6f98344.png)
 
 ## HTTPS sertifikacija
+```
+sudo apt install -y certbot python3-certbot-nginx
+sudo certbot --nginx -d guestbook-drs.duckdns.org
+```
+
+![](https://i.gyazo.com/7047a204e1e79dadbbf2b682532dc15f.png)
