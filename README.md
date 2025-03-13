@@ -35,13 +35,18 @@ npm -v # Should print "10.9.2".
 ## Podesavanje Guestbook app (baza podataka, node server, nginx host, DNS)
 ### Node init i npm potrebni paketi
 `npm init -y`
+
 `npm install express monogoose socket.io dotenv`
+
 ![](https://i.gyazo.com/58e828bde8c9eec749bf5bf66453fc16.png)
 
 ### MongoDB baza podataka
 `mongosh`
+
 `> use guestbook`
+
 `guestbook> db.createCollection("messages")`
+
 `guestbook> db.messages.insertOne([{ message: "Hello from MongoDB!" }])`
 
 ### NodeJS server i sama aplikacija
@@ -56,15 +61,19 @@ DuckDNS konfiguracija
 
 NGINX config sa DNS serverom.
 `sudo nano /etc/nginx/sites-available/guestbook`
+
 `sudo ln -s /etc/nginx/sites-available/guestbook /etc/nginx/sites-enabled/`
 
 ## Pokretanje aplikacije i testiranje
 `pm2 start server.js --name guestbook`
+
 `pm2 startup`
+
 `pm2 save`
 
 Otvaranje portova
 `sudo ufw allow 22,80,443`
+
 `sudo ufw enable`
 
 ![](https://i.gyazo.com/6c0f2a23218d3140a341e8c6aae50812.png)
